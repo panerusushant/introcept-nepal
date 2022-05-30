@@ -15,7 +15,7 @@
     <h1 class="heading" id="heading-top"> Edit Post</h1>
     <div>
        
-
+    
         <form action="/edit" method="POST">
 
             <input type="text" name="id" class="id" value = "<?= $_REQUEST['id']?>"hidden><br>

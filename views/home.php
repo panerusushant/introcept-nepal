@@ -58,13 +58,13 @@
 
                     </div>
 
-                    <form method="post" action='POST'>
-
-                        
+                    <form action='/comments' method="POST">
 
                         <div class="forgroup">
-                            <label for="comments">comments</label>
-                            <input type="text" class="form-control" id="comment" placeholder="Enter comment" name="comment">
+
+                            <h5>comments</h5>
+                            <input name = 'data_id' id = 'data_id' value = '<?=$data['id']?>' hidden>
+                            <input type="text" class="form-control" id="comments" placeholder="Enter comment" name="comments">
                             <button type="submit" class="btn-light" name="submit">Post</button>
 
                         </div>

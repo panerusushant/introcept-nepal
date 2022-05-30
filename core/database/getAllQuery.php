@@ -92,4 +92,26 @@ class QueryBuilder
             die("Query Error" . $e->getMessage());
         }
     }
+
+
+
+    public function createComment($table, $parameters)
+    {
+        try {
+
+            $sql = sprintf(
+                'insert into %s (%s) values (%s)',
+                $table,
+                implode(',', array_keys($parameters)),
+                ':' . implode(', :', array_keys($parameters))
+            );
+
+            $statement = $this->pdo->prepare($sql);
+
+            $statement->execute($parameters);
+        } catch (Exception $e) {
+
+            die("Query Error".$e->getMessage());
+        }
+    }
 }
