@@ -56,6 +56,8 @@
                             </form>
                         </div>
 
+                        
+
                     </div>
 
                     <form action='/comments' method="POST">
@@ -63,12 +65,20 @@
                         <div class="forgroup">
 
                             <h5>comments</h5>
-                            <input name = 'data_id' id = 'data_id' value = '<?=$data['id']?>' hidden>
+                            <input name='data_id' id='data_id' value='<?= $data['id'] ?>' hidden>
                             <input type="text" class="form-control" id="comments" placeholder="Enter comment" name="comments">
                             <button type="submit" class="btn-light" name="submit">Post</button>
 
                         </div>
                     </form>
+
+                    <div class='comments'>
+                            <?php foreach($comments as $comment) :?>
+                                <p class= 'comment-card'><?= $comment['comments'];?></p>
+                                <?php endforeach;?>
+
+                    </div>
+
                 </div>
             </div>
         <?php } ?>

@@ -114,4 +114,24 @@ class QueryBuilder
             die("Query Error".$e->getMessage());
         }
     }
+
+
+
+    public function SelectComment($post, $comment)
+    {
+
+
+        try {
+
+
+            $statement = $this->pdo->prepare("select comments from $post inner join $comment on $post.id = $comment.data_id");
+
+            $statement->execute();
+
+            return $statement->fetchAll(PDO::FETCH_ASSOC);
+        } catch (Exception $e) {
+
+            die("Query Error".$e->getMessage());
+        }
+    }
 }
