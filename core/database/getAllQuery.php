@@ -23,6 +23,7 @@ class QueryBuilder
             $statement->execute();
 
             return $statement->fetchAll(PDO::FETCH_ASSOC);
+            
         } catch (Exception $e) {
 
             die("Query Error");
@@ -62,13 +63,12 @@ class QueryBuilder
             $content = $_POST['content'];
 
 
-
             $sql = "UPDATE $table SET title = '$title', content = '$content' WHERE id = $id";
-
 
             $statement = $this->pdo->prepare($sql);
 
             $statement->execute();
+            
         } catch (Exception $e) {
 
             die("Query Error" . $e->getMessage());
@@ -103,12 +103,13 @@ class QueryBuilder
                 'insert into %s (%s) values (%s)',
                 $table,
                 implode(',', array_keys($parameters)),
-                ':' . implode(', :', array_keys($parameters))
+                ':' . implode(', :', array_keys($parameters))  
             );
 
             $statement = $this->pdo->prepare($sql);
 
             $statement->execute($parameters);
+
         } catch (Exception $e) {
 
             die("Query Error".$e->getMessage());
@@ -117,18 +118,20 @@ class QueryBuilder
 
 
 
-    public function SelectComment($post, $comment)
+    public function SelectComment(  $comment)
     {
+        
+
+        try {   
 
 
-        try {
-
-
-            $statement = $this->pdo->prepare("select comments from $post inner join $comment on $post.id = $comment.data_id");
+            //$statement = $this->pdo->prepare("select comments from $post inner join $comme"nt on $post.id = $comment.data_id");
+              $statement = $this->pdo->prepare("SELECT * from  $comment ");
 
             $statement->execute();
 
             return $statement->fetchAll(PDO::FETCH_ASSOC);
+
         } catch (Exception $e) {
 
             die("Query Error".$e->getMessage());

@@ -37,11 +37,6 @@ class Router{
 
     }
 
-    public function put($uri, $controller){
-
-        $this ->routes['PUT'][$uri] =$controller;
-
-    }
 
     public function delete($uri, $controller){
 

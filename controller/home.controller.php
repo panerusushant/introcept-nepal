@@ -2,9 +2,9 @@
 
 
 
-$datas = $app['database']->SelectAll('data');
+$datas = $app['database']->SelectAll('posts');
 
-$comments = $app['database'] ->SelectComment('data', 'comment');
+$comments = $app['database'] ->SelectComment( 'comment');
 
 
   

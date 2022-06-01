@@ -5,7 +5,7 @@
 
 
 
-$app['database']->update('data');
+$app['database']->update('posts');
 
     header('Location: /');
 

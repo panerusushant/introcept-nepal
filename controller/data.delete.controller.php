@@ -1,5 +1,5 @@
 <?php
 
-$app['database']->delete('data');
+$app['database']->delete('posts');
 
     header('Location: /');
